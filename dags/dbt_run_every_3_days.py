@@ -3,7 +3,7 @@ from  airflow.providers.standard.operators.bash import BashOperator
 from datetime import datetime
 
 
-DBT_PROJECT_PATH = "/home/usr/currency_project/currency_pg_project"
+DBT_PROJECT_PATH = "*"
 with DAG(
     dag_id="dbt_run_every_3_days",
     description="Запуск dbt кожні 3 дні",
@@ -16,4 +16,5 @@ with DAG(
         bash_command=f"""cd {DBT_PROJECT_PATH} && \
         dbt build
         """
+
     )
